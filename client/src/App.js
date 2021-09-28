@@ -4,7 +4,7 @@
  * @returns App
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Section from "./components/Section";
 
 export default function App() {
@@ -12,12 +12,8 @@ export default function App() {
   
   let testDateStart = new Date("12/22/21");
   let testDateEnd = new Date("12/29/21");
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
-
-  function fetchTasks() {
+  
+  const fetchTasks = useCallback(() => {
     fetch('/api/tasks')
       .then(res => res.json())
       .then((res) => {
@@ -34,7 +30,11 @@ export default function App() {
       .then(res => setTasks(res));
     console.log(tasks);
     console.log(tasks[0]);
-  }
+  });
+  
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
 
   return (
 
