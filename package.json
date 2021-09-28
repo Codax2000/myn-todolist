@@ -11,6 +11,9 @@
   "author": "Alexander Knowlton",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "react-bootstrap": "^1.6.4"
   }
 }

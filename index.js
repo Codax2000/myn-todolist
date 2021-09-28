@@ -18,6 +18,25 @@ app.get('/api/passwords', (req, res) => {
   console.log(`Sent 2 passwords`);
 });
 
+app.get('/api/tasks', (req, res) => {
+  const tasks = [
+    {
+      "start": '2021-12-25T08:00:00.000Z',
+      "end": '2021-12-27T08:00:00.000Z',
+      "text": "take out the trash"
+    },
+    {
+      "start": '2021-12-23T08:00:00.000Z',
+      "end": '2021-12-26T08:00:00.000Z',
+      "text": "write thank you letters"
+    }
+  ];
+
+  res.json(tasks);
+
+  console.log(tasks);
+})
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
